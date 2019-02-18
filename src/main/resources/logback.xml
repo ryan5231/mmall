@@ -14,10 +14,10 @@
 
     <!--配置项目日志-->
     <appender name="mmall" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <File>C:/Projects/IdeaProjects/mmall/logs/mmall.log</File>
+        <File>C:\Projects\IdeaProjects\mmall\logs\mmall.log</File>
         <!--<File>/developer/apache-tomcat-7.0.73/logs/mmall.log</File>-->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>D:/Projects/IdeaProjects/mmall/logs/mmall.log.%d{yyyy-MM-dd}.gz</fileNamePattern>
+            <fileNamePattern>C:\Projects\IdeaProjects\mmall\logs\mmall.log.%d{yyyy-MM-dd}.gz</fileNamePattern>
             <!--<fileNamePattern>/developer/apache-tomcat-7.0.73/logs/mmall.log.%d{yyyy-MM-dd}.gz</fileNamePattern>-->
             <append>true</append>
             <maxHistory>10</maxHistory>
@@ -29,11 +29,11 @@
 
 
     <appender name="error" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <File>C:/Projects/IdeaProjects/mmall/logs/error.log</File>
+        <File>C:\Projects\IdeaProjects\mmall\logs\mmall_error.log</File>
         <!--<File>/developer/apache-tomcat-7.0.73/logs/error.log</File>-->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!--<fileNamePattern>/devsoft/apache-tomcat-7.0.73/logs/error.log.%d{yyyy-MM-dd}.gz</fileNamePattern>-->
-            <fileNamePattern>D:/Projects/IdeaProjects/mmall/logs/error.log.%d{yyyy-MM-dd}.gz</fileNamePattern>
+            <fileNamePattern>C:\Projects\IdeaProjects\mmall\logs\mmall_error.log.%d{yyyy-MM-dd}.gz</fileNamePattern>
             <append>true</append>
             <maxHistory>10</maxHistory>
         </rollingPolicy>
