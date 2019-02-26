@@ -15,6 +15,7 @@ public class PropertiesUtil {
 
     private static Properties props;
 
+    //静态代码块仅执行一次  初始化静态变量
     static {
         String fileName = "mmall.properties";
         props = new Properties();
@@ -34,7 +35,6 @@ public class PropertiesUtil {
     }
 
     public static String getProperty(String key,String defaultValue){
-
         String value = props.getProperty(key.trim());
         if(StringUtils.isBlank(value)){
             value = defaultValue;

@@ -35,6 +35,7 @@ public class CategoryServiceImpl implements ICategoryService {
         category.setStatus(true);//表示分类可用
         int rowCount = categoryMapper.insert(category);
         if (rowCount >0){
+            logger.info("新的品类名称:"+categoryName);
             return ServerResponse.createBySuccess("添加品类成功");
         }
         return ServerResponse.createByErrorMessage("添加品类失败");
@@ -65,7 +66,7 @@ public class CategoryServiceImpl implements ICategoryService {
     }
 
     @Override
-    public ServerResponse selectCategoryAndChildrenById(Integer categoryId){
+    public ServerResponse<List<Integer>> selectCategoryAndChildrenById(Integer categoryId){
         Set<Category> categorySet = Sets.newHashSet();
         findChildCategory(categorySet,categoryId);
 
