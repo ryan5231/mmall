@@ -10,6 +10,7 @@ public class ProductListVo {
     private String mainImage;
     private BigDecimal price;
     private Integer status;
+    private String imageHost;
 
     public Integer getStatus() {
         return status;
@@ -18,8 +19,6 @@ public class ProductListVo {
     public void setStatus(Integer status) {
         this.status = status;
     }
-
-    private String imageHost;
 
     public Integer getId() {
         return id;

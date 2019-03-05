@@ -95,15 +95,15 @@ public class ProductServiceImpl implements IProductService {
     private ProductDetailVo assembleProductDetailVo(Product product) {
         ProductDetailVo productDetailVo = new ProductDetailVo();
         productDetailVo.setId(product.getId());
+        productDetailVo.setCategoryId(product.getCategoryId());
+        productDetailVo.setName(product.getName());
         productDetailVo.setSubtitle(product.getSubtitle());
-        productDetailVo.setPrice(product.getPrice());
         productDetailVo.setMainImage(product.getMainImage());
         productDetailVo.setSubImages(product.getSubImages());
-        productDetailVo.setCategoryId(product.getCategoryId());
         productDetailVo.setDetail(product.getDetail());
-        productDetailVo.setName(product.getName());
-        productDetailVo.setStatus(product.getStatus());
+        productDetailVo.setPrice(product.getPrice());
         productDetailVo.setStock(product.getStock());
+        productDetailVo.setStatus(product.getStatus());
         //imageHost
         productDetailVo.setImageHost(PropertiesUtil.getProperty("ftp.server.http.prefix", "http://image.ryan.com/"));
         //parentCategoryId
@@ -123,15 +123,15 @@ public class ProductServiceImpl implements IProductService {
     @Override
     public ServerResponse<PageInfo> getProductList(int pageNum, int pageSize) {
         //startPage--start
-        //填充sql查询逻辑
-        //pageHelper--收尾
         PageHelper.startPage(pageNum, pageSize);
+        //填充sql查询逻辑
         List<Product> productList = productMapper.selectList();
         List<ProductListVo> productListVoList = Lists.newArrayList();
         for (Product product : productList) {
             ProductListVo productListVo = assembleProductListVo(product);
             productListVoList.add(productListVo);
         }
+        //pageHelper--收尾
         PageInfo pageInfo = new PageInfo(productList);
         pageInfo.setList(productListVoList);
         return ServerResponse.createBySuccess(pageInfo);
@@ -140,12 +140,13 @@ public class ProductServiceImpl implements IProductService {
     private ProductListVo assembleProductListVo(Product product) {
         ProductListVo productListVo = new ProductListVo();
         productListVo.setId(product.getId());
-        productListVo.setName(product.getName());
         productListVo.setCategoryId(product.getCategoryId());
-        productListVo.setImageHost(PropertiesUtil.getProperty("ftp.server.http.prefix", "http://image.ryan.com/"));
-        productListVo.setPrice(product.getPrice());
+        productListVo.setName(product.getName());
         productListVo.setSubtitle(product.getSubtitle());
+        productListVo.setMainImage(product.getMainImage());
+        productListVo.setPrice(product.getPrice());
         productListVo.setStatus(product.getStatus());
+        productListVo.setImageHost(PropertiesUtil.getProperty("ftp.server.http.prefix", "http://image.ryan.com/"));
         return productListVo;
     }
 
