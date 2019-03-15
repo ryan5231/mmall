@@ -11,6 +11,8 @@ import com.mmall.service.IProductService;
 import com.mmall.service.IUserService;
 import com.mmall.util.PropertiesUtil;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,18 +23,18 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 import java.util.Map;
 
 @Controller
 @RequestMapping("/manage/product")
 public class ProductManageController {
 
+    private static final Logger logger = LoggerFactory.getLogger(ProductManageController.class);
     @Autowired
     private IUserService iUserService;
-
     @Autowired
     private IProductService iProductService;
-
     @Autowired
     private IFileService iFileService;
 
