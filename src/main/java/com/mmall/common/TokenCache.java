@@ -4,11 +4,14 @@ import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.TimeUnit;
 
+
+/**
+ *  一期使用 Guava Cache 实现本地缓存
+ *  二期使用 Redis 实现
+ */
 @Slf4j
 public class TokenCache {
 
