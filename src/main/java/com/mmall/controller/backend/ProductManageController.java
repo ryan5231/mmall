@@ -30,7 +30,6 @@ import java.util.Map;
 @RequestMapping("/manage/product")
 public class ProductManageController {
 
-    private static final Logger logger = LoggerFactory.getLogger(ProductManageController.class);
     @Autowired
     private IUserService iUserService;
     @Autowired

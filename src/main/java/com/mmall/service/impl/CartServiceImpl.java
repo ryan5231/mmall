@@ -14,6 +14,7 @@ import com.mmall.util.BigDecimalUtil;
 import com.mmall.util.PropertiesUtil;
 import com.mmall.vo.CartProductVo;
 import com.mmall.vo.CartVo;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,8 +25,8 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @Service("iCartService")
+@Slf4j
 public class CartServiceImpl implements ICartService {
-    private Logger logger = LoggerFactory.getLogger(CartServiceImpl.class);
 
     @Autowired
     private CartMapper cartMapper;
@@ -139,7 +140,7 @@ public class CartServiceImpl implements ICartService {
                     cartProductVo.setQuantity(buyLimitCount);
                     //计算单个产品总价
                     cartProductVo.setProductTotalPrice(BigDecimalUtil.mul(product.getPrice().doubleValue(), cartProductVo.getQuantity()));
-                    logger.info(cartProductVo.getProductName()+": "+cartProductVo.getProductTotalPrice().toString());
+                    log.info(cartProductVo.getProductName()+": "+cartProductVo.getProductTotalPrice().toString());
                     cartProductVo.setProductChecked(cartItem.getChecked());
                 }
                 //计算总价
