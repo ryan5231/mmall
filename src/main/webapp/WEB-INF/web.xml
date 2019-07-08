@@ -34,7 +34,7 @@
         <url-pattern>*.do</url-pattern>
     </filter-mapping>
     
-    <!--&lt;!&ndash;SpringSession&ndash;&gt;-->
+    <!--SpringSession-->
     <!--<filter>-->
         <!--<filter-name>springSessionRepositoryFilter</filter-name>-->
         <!--<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>-->
@@ -49,6 +49,7 @@
         <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
     </listener>
 
+    <!--启动WEB项目的时候，会读取web.xml，读取顺序content-param, listener, filter, servlet-->
     <!--将 web 容器与 spring 容器 整合，通过下面的<context-param>-->
     <!-- ContextLoaderListener 将加载 applicationContext.xml 文件-->
     <listener>
@@ -74,7 +75,7 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
 
-    <!--&lt;!&ndash;拦截 *.do&ndash;&gt;-->
+    <!--拦截 *.do-->
     <!--<servlet-mapping>-->
         <!--<servlet-name>dispatcher</servlet-name>-->
         <!--<url-pattern>*.do</url-pattern>-->

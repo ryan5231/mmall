@@ -24,6 +24,15 @@ public class RedissonManager {
     private static String redis2Ip = PropertiesUtil.getProperty("redis2.ip");
     private static Integer redis2Port = Integer.parseInt(PropertiesUtil.getProperty("redis2.port"));
 
+
+//    介绍配置Redis集群组态的文档在这里。 Redis集群组态的最低要求是必须有三个主节点。Redisson的集群模式的使用方法如下：
+//    Config config = new Config();
+//    config.useClusterServers()
+//        .setScanInterval(2000) // 集群状态扫描间隔时间，单位是毫秒
+//        .addNodeAddress("redis://127.0.0.1:7000", "redis://127.0.0.1:7001")//可以用"rediss://"来启用SSL连接
+//        .addNodeAddress("redis://127.0.0.1:7002");
+//    RedissonClient redisson = Redisson.create(config);
+
     @PostConstruct
     private void init() {
         try {

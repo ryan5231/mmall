@@ -1,1 +1,1 @@
-just learning
+just for learning
